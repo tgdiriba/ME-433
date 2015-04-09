@@ -807,10 +807,11 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <pad name="P$26" x="10.16" y="27.94" drill="0.813053125" shape="long"/>
 <pad name="P$27" x="10.16" y="30.48" drill="0.813053125" shape="long"/>
 <pad name="P$28" x="10.16" y="33.02" drill="0.813053125" shape="long"/>
-<wire x1="-1.27" y1="-1.27" x2="11.43" y2="-1.27" width="0.127" layer="20"/>
-<wire x1="11.43" y1="-1.27" x2="11.43" y2="34.29" width="0.127" layer="20"/>
-<wire x1="11.43" y1="34.29" x2="-1.27" y2="34.29" width="0.127" layer="20"/>
-<wire x1="-1.27" y1="34.29" x2="-1.27" y2="-1.27" width="0.127" layer="20"/>
+<wire x1="-1.27" y1="31.75" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-1.27" x2="11.43" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="11.43" y1="-1.27" x2="11.43" y2="34.29" width="0.127" layer="21"/>
+<wire x1="11.43" y1="34.29" x2="-1.27" y2="34.29" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="34.29" x2="-1.27" y2="31.75" width="0.127" layer="21"/>
 </package>
 <package name="USB-MINIB">
 <wire x1="-5.02" y1="3.9" x2="-5.02" y2="-3.9" width="0.127" layer="22"/>
@@ -942,19 +943,19 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <package name="8MHZ_RESONATOR">
 <pad name="OSC1" x="0" y="0" drill="0.813053125" shape="octagon"/>
 <pad name="GND" x="2.54" y="0" drill="0.813053125" shape="octagon"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.127" layer="20"/>
-<wire x1="-1.27" y1="-1.27" x2="6.35" y2="-1.27" width="0.127" layer="20"/>
-<wire x1="6.35" y1="-1.27" x2="6.35" y2="1.27" width="0.127" layer="20"/>
-<wire x1="6.35" y1="1.27" x2="-1.27" y2="1.27" width="0.127" layer="20"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-1.27" x2="6.35" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="6.35" y1="-1.27" x2="6.35" y2="1.27" width="0.127" layer="21"/>
+<wire x1="6.35" y1="1.27" x2="-1.27" y2="1.27" width="0.127" layer="21"/>
 <pad name="OSC2" x="5.08" y="0" drill="0.813053125" shape="octagon"/>
 </package>
 <package name="2LEAD_PUSHBUTTON">
 <pad name="A" x="0" y="0" drill="1.1" shape="octagon"/>
 <pad name="B" x="6.0999875" y="0" drill="1.1" shape="octagon"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.127" layer="20"/>
-<wire x1="-1.27" y1="-1.27" x2="7.62" y2="-1.27" width="0.127" layer="20"/>
-<wire x1="7.62" y1="-1.27" x2="7.62" y2="1.27" width="0.127" layer="20"/>
-<wire x1="7.62" y1="1.27" x2="-1.27" y2="1.27" width="0.127" layer="20"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-1.27" x2="7.62" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="7.62" y1="-1.27" x2="7.62" y2="1.27" width="0.127" layer="21"/>
+<wire x1="7.62" y1="1.27" x2="-1.27" y2="1.27" width="0.127" layer="21"/>
 </package>
 <package name="CAP-PTH-SMALL">
 <wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.2032" layer="21"/>

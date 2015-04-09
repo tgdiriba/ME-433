@@ -2203,6 +2203,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="R4" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value="1k"/>
 <part name="GND12" library="ME433" deviceset="GND" device=""/>
 <part name="P+7" library="ME433" deviceset="3.3V" device=""/>
+<part name="C5" library="ME433" deviceset="CAP" device="0603-CAP"/>
+<part name="GND13" library="ME433" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2255,6 +2257,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R4" gate="G$1" x="-40.64" y="43.18" rot="R90"/>
 <instance part="GND12" gate="1" x="-40.64" y="22.86"/>
 <instance part="P+7" gate="G$1" x="-40.64" y="55.88"/>
+<instance part="C5" gate="G$1" x="-38.1" y="-35.56"/>
+<instance part="GND13" gate="1" x="-38.1" y="-43.18"/>
 </instances>
 <busses>
 </busses>
@@ -2461,6 +2465,11 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="GND12" gate="1" pin="GND"/>
 <wire x1="-40.64" y1="27.94" x2="-40.64" y2="25.4" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="GND13" gate="1" pin="GND"/>
+<pinref part="C5" gate="G$1" pin="2"/>
+<wire x1="-38.1" y1="-40.64" x2="-38.1" y2="-38.1" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="3.3V" class="0">
 <segment>
@@ -2487,6 +2496,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="U$1" gate="G$1" pin="13_VDD"/>
 <wire x1="-22.86" y1="-27.94" x2="-38.1" y2="-27.94" width="0.1524" layer="91"/>
 <pinref part="P+2" gate="G$1" pin="3.3V"/>
+<pinref part="C5" gate="G$1" pin="1"/>
+<wire x1="-38.1" y1="-30.48" x2="-38.1" y2="-27.94" width="0.1524" layer="91"/>
+<junction x="-38.1" y="-27.94"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="28_AVDD"/>
