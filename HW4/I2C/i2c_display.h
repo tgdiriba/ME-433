@@ -19,4 +19,6 @@ void display_pixel_set(int row, int col, int val); // set the pixel at the given
 
 int display_pixel_get(int row, int col);  // get the pixel at the given row and column
 
+void display_write_text(int row, int col, const char* text);
+
 #endif
