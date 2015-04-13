@@ -176,8 +176,6 @@ static inline display_pixel_inrange(int row, int col) {
 }
 
 void display_write_text(int row, int col, const char* text) {
-  // Make sure there are no invalid inputs
-  
   int cur_row = row, cur_col = col, i, r, c, l = strlen(text), index;
   for(i = 0; i < l; i++) {
     // Compute the index into the ASCII table
@@ -192,5 +190,45 @@ void display_write_text(int row, int col, const char* text) {
       }
     }
   }
-  
+}
+
+void display_draw_line(point_t p1, point_t, p2) {
+  // Bresenham's Line Drawing Algorithm
+  float dx = p2.x - p1.x, dy = p2.y - p1.y, x = 0, y = 0;
+  float err = 0, derr;
+  float e = 1e-5;
+  if(abs(dx) > e) {
+    derr = abs(dy/dx);
+    for(x = p1.x; x < p2.x; x++) {
+      err += derr;
+      do {
+        if(display_pixel_inrange(y, x)) {
+          display_pixel_set(y, x, 1);
+        }
+        y += y + signum(dy);
+        err += -1.0;
+      } while(err >= 0.5);
+    }
+  }
+  else {
+    // Vertical Line
+    for(y = p1.y; y != p2.y; y += signum(dy)) {
+      if(display_pixel_inrange(y, x)) {
+        display_pixel_set(y, x);
+      }
+    }
+  }
+}
+
+void display_draw_bitmap(bitmap_t bm) {
+  int x, y;
+  if(bm.bitmap != NULL) {
+    for(x = 0; x < bm.width; x++) {
+      for(y = 0; y < bm.height; y++) {
+        if(display_pixel_inrange(y, x)) {
+          display_pixel_set(y, x, bm.bitmap[y][x]);
+        }
+      }
+    }
+  }
 }

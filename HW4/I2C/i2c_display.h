@@ -7,6 +7,18 @@
 #define WIDTH 128 //display width in bits
 #define HEIGHT 64 //display height, in bits
 
+typedef struct {
+  int x;
+  int y;
+} point_t;
+
+typedef struct {
+  point_t tl;
+  int width;
+  int height;
+  char **bitmap;
+} bitmap_t;
+
 void display_init(); // initialize I2C2 
 
 void display_command(unsigned char cmd); // issue a command to the display
@@ -20,5 +32,7 @@ void display_pixel_set(int row, int col, int val); // set the pixel at the given
 int display_pixel_get(int row, int col);  // get the pixel at the given row and column
 
 void display_write_text(int row, int col, const char* text);
+
+void display_draw_line(point_t p1, point_t p2);
 
 #endif
