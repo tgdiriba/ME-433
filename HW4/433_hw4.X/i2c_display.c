@@ -177,7 +177,7 @@ static inline int display_pixel_inrange(int row, int col) {
 
 void display_write_char(int row, int col, char ch) {
     int index = ch-32, r, c;
-    if(r >= 0 && r+8 < HEIGHT && c >= 0 && c+5 < WIDTH && index >= 0 && index < 96) {
+    if(row >= 0 && row+8 < HEIGHT && col >= 0 && col+5 < WIDTH && index >= 0 && index < 96) {
         for(r = row; r < row+8; r++) {
             for(c = col; c < col+5; c++) {
                 display_pixel_set(r, c, ASCII[index][c-col] & (1<<(r-row)));
