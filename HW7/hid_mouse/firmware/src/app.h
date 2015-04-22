@@ -166,6 +166,10 @@ typedef struct
 
     short accelerations[3];
 
+    char buffer[100];
+    int pixels_x;
+    int pixels_y;
+
 } APP_DATA;
 
 

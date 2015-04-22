@@ -333,6 +333,7 @@ void APP_Initialize ( void )
     appData.ignoreSwitchPress = false;
 
     // Accelerometer and Display initialization
+    display_init();
     acc_setup();
 
     appData.accelerations[0] = 0;
@@ -417,13 +418,29 @@ void APP_Tasks ( void )
                 {
                     appData.mouseButton[0] = MOUSE_BUTTON_STATE_RELEASED;
                     appData.mouseButton[1] = MOUSE_BUTTON_STATE_RELEASED;
-                    
+
+                    // Accelerometer to mouse HID
                     acc_read_register(OUT_X_L_A, (unsigned char *) appData.accelerations, 6);
                     appData.xCoordinate =(int8_t)((appData.accelerations[0]*3)/32000.0);
                     appData.yCoordinate =(int8_t)((appData.accelerations[1]*3)/32000.0);
                     
                     vector ++;
                     movement_length = 0;
+
+                    // OLED Display
+                    display_clear();
+
+                    appData.pixels_x = (int)(((float)((WIDTH-1)*((int)appData.accelerations[0])))/((float)(1<<15)));
+                    appData.pixels_y = (int)(((float)((HEIGHT-1)*((int)appData.accelerations[1])))/((float)(1<<15)));
+                    sprintf(appData.buffer, "X:%d", appData.accelerations[0]);
+                    display_write_text(0, 0, appData.buffer);
+                    sprintf(appData.buffer, "Y:%d", appData.accelerations[1]);
+                    display_write_text(8, 0, appData.buffer);
+                    sprintf(appData.buffer, "Z:%d", appData.accelerations[2]);
+                    display_write_text(16, 0, appData.buffer);
+                    display_draw_vbar(HEIGHT/2, WIDTH/2, signum(appData.accelerations[0]), appData.pixels_y, 6);
+                    display_draw_hbar(HEIGHT/2, WIDTH/2, signum(appData.accelerations[1]), appData.pixels_x, 6);
+                    display_draw();
                 }
             }
             else
