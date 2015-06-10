@@ -144,6 +144,10 @@ typedef struct
      /* USB HID current Idle */
     uint8_t idleRate;
 
+    char buffer[100];
+
+    short accelerations[3];
+
 } APP_DATA;
 
 

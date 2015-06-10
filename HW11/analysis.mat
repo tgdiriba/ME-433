@@ -1,0 +1,27 @@
+raw_accelerations = dlmread('raw_accelerations.dat');
+raw_z = raw_accelerations(:, 3);
+raw_coefficients = fft(raw_z);
+figure;
+plot(0:9, raw_coefficients(1:10));
+print('RawAccelerometerData', '-dpng');
+
+maf_accelerations = dlmread('maf_accelerations.dat');
+maf_z = maf_accelerations(:, 3);
+maf_coefficients = fft(maf_z);
+figure;
+plot(0:9, maf_coefficients(1:10));
+print('MAFAccelerometerData', '-dpng');
+
+fir_stat_accelerations = dlmread('fir_stationary_accelerations.dat');
+fir_stat_z = fir_stat_accelerations(:, 3);
+fir_stat_coefficients = fft(fir_stat_z);
+figure;
+plot(0:9, fir_stat_coefficients(1:10));
+print('FIRStatAccelerometerData', '-dpng');
+
+fir_osc_accelerations = dlmread('fir_oscillatory_accelerations.dat');
+fir_osc_z = fir_osc_accelerations(:, 3);
+fir_osc_coefficients = fft(fir_osc_z);
+figure;
+plot(0:9, fir_osc_coefficients(1:10));
+print('FIROscAccelerometerData', '-dpng');
